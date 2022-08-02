@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <h1 class="text-center">Automatic Recognition</h1><br><br>  
+   
+    <form  action="/photograph" method="post" enctype="multipart/form-data">
+        <!-- <input type="file" class="form-control" type="file" name="imagefile"> -->
+        <h4 style="display:inline; margin-left:1cm; border: 2px solid rgb(10, 111, 125); border-radius: 5px;">Upload Photograph</h3>
+        <input class="btn btn-primary" type="file" id="myfile" style="width: 10cm; margin-left:1px; display: inline;" name="imagefile">
+        <input type="submit" class="btn btn-primary mt-3" value="Upload" style="display:inline ;">
+    </form>
+    <img src="{{img_p}}" alt="No img">
+
+    <!-- {% if prediction1 %} -->
+        {% if prediction1=="Sign" %}
+            <p style="margin-left: 6cm; color: red;">Please upload a valid Photograph!</p>
+        {% endif %}
+        {% if prediction1=="Photograph" %}
+            <p style="margin-left: 6cm; color: green;">Photograph uploaded</p>
+        {% endif %}
+    <!-- {% endif %} -->
+
+    <br><br><br><br>
+
+    
+    <form  action="/sign" method="post" enctype="multipart/form-data">
+        <!-- <input type="file" class="form-control" type="file" name="imagefile"> -->
+        <h4 style="display:inline; margin-left:1cm; border: 2px solid rgb(10, 111, 125); border-radius: 5px;">Upload Signature</h3>
+        <input class="btn btn-primary" type="file" id="myfile" style="width: 10cm; margin-left:1px; display: inline;" name="imagefile">
+        <input type="submit" class="btn btn-primary mt-3" value="Upload" style="display:inline ;">
+    </form>
+
+    <!-- {% if prediction2 %} -->
+        {% if prediction2=="Photograph" %}
+            <p style="margin-left: 6cm; color: red;">Please upload a valid Signature!</p>
+        {% endif %}
+        {% if prediction2=="Sign" %}
+            <p style="margin-left: 6cm; color: green;">Signature uploaded</p>
+        {% endif %}
+    <!-- {% endif %} -->
+
+
+</body>
+</html>
